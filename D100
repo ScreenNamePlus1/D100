@@ -1,0 +1,13 @@
+import random
+
+def roll_100_sided_dice():
+    """
+    Simulates rolling a 100-sided dice.
+    """
+    result = random.randint(1, 100)
+    return result
+
+# Example usage:
+if __name__ == "__main__":
+    rolled_value = roll_100_sided_dice()
+    print(f"The result of rolling a 100-sided dice is: {rolled_value}")
