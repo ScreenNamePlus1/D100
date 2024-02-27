@@ -23,7 +23,7 @@ def roll_100_sided_dice():
         label = "Excellent"
     elif result <= 90:
         label = "Amazing"
-    else:
+    elif == 100:
         label = "Legendary"
     
     return result, label
