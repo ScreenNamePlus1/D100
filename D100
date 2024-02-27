@@ -6,25 +6,25 @@ def roll_100_sided_dice():
     """
     result = random.randint(1, 100)
     if result <= 10:
-        label = "Terrible"
+        label = "Not Magical"
     elif result <= 20:
-        label = "Poor"
+        label = "Common"
     elif result <= 30:
-        label = "Mediocre"
+        label = "Uncommon"
     elif result <= 40:
-        label = "Fair"
+        label = "Rare"
     elif result <= 50:
-        label = "Decent"
+        label = "Very Rare"
     elif result <= 60:
-        label = "Good"
-    elif result <= 70:
-        label = "Great"
-    elif result <= 80:
-        label = "Excellent"
-    elif result <= 90:
-        label = "Amazing"
-    elif result == 100:
         label = "Legendary"
+    elif result <= 70:
+        label = "Artifact"
+    elif result <= 80:
+        label = "Choose a number of treasures legendary or less. All treasures chosen this way must equal a roll of 80"
+    elif result <= 90:
+        label = "Choose a number of treasures legendary or less. All treasures chosen this way must equal a roll of 90 or less."
+    elif result == 100:
+        label = "Magical"
     
     return result, label
 
