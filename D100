@@ -1,5 +1,5 @@
 import random
-
+#feel free to edit these lists with items you want to use
 # Define the tables for each label
 Not_Magical = ["A rock", "A stick", "A feather", "A coin", "A button", "A nail", "A leaf", "A worm", "A bone", "A shell"]
 Common = ["A potion of healing", "A scroll of fireball", "A bag of holding", "A cloak of protection", "A ring of swimming", "A wand of magic missiles", "A pearl of power", "A quiver of +1 arrows", "A +1 dagger", "A +1 shield"]
