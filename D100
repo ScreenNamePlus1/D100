@@ -1,5 +1,17 @@
 import random
 
+# Define the tables for each label
+Not_Magical = ["A rock", "A stick", "A feather", "A coin", "A button", "A nail", "A leaf", "A worm", "A bone", "A shell"]
+Common = ["A potion of healing", "A scroll of fireball", "A bag of holding", "A cloak of protection", "A ring of swimming", "A wand of magic missiles", "A pearl of power", "A quiver of +1 arrows", "A +1 dagger", "A +1 shield"]
+Uncommon = ["A potion of invisibility", "A scroll of teleportation", "A boots of elvenkind", "A cloak of elvenkind", "A ring of jumping", "A wand of web", "A gem of brightness", "A +1 longbow", "A +1 rapier", "A +1 chain shirt"]
+Rare = ["A potion of flying", "A scroll of resurrection", "A helm of teleportation", "A cloak of displacement", "A ring of regeneration", "A wand of lightning bolts", "A necklace of fireballs", "A +2 greatsword", "A +2 rapier", "A +2 breastplate"]
+Very_Rare = ["A potion of speed", "A scroll of wish", "A cube of force", "A cloak of the bat", "A ring of invisibility", "A wand of fireballs", "A staff of power", "A +3 warhammer", "A +3 scimitar", "A +3 half plate"]
+Legendary = ["A potion of supreme healing", "A scroll of true resurrection", "A sphere of annihilation", "A cloak of invisibility", "A ring of three wishes", "A wand of the war mage +3", "A staff of the magi", "A vorpal sword", "A holy avenger", "A robe of the archmagi"]
+Artifact = ["The Deck of Many Things", "The Eye of Vecna", "The Hand of Vecna", "The Orb of Dragonkind", "The Axe of the Dwarvish Lords", "The Book of Vile Darkness", "The Book of Exalted Deeds", "The Rod of Seven Parts", "The Sword of Kas", "The Blackstaff"]
+
+# Map the labels to the tables using a dictionary
+tables = {"Not Magical": Not_Magical, "Common": Common, "Uncommon": Uncommon, "Rare": Rare, "Very Rare": Very_Rare, "Legendary": Legendary, "Artifact": Artifact}
+
 def roll_100_sided_dice():
     """
     Simulates rolling a 100-sided dice.
@@ -25,10 +37,36 @@ def roll_100_sided_dice():
         label = "Choose a number of treasures legendary or less. All treasures chosen this way must equal a roll of 90 or less."
     elif result == 100:
         label = "Magical"
-    
+
     return result, label
+
+def get_item_from_table(label):
+    """
+    Simulates rolling another D100 and getting an item from the table that corresponds to the label.
+    """
+    # If the label is not in the tables dictionary, return None
+    if label not in tables:
+        return None
+    # If the label is one of the values that require choosing a number of treasures, return a message
+    if label == "Choose a number of treasures legendary or less. All treasures chosen this way must equal a roll of 80" or label == "Choose a number of treasures legendary or less. All treasures chosen this way must equal a roll of 90 or less.":
+        return f"You need to choose a number of treasures legendary or less. All treasures chosen this way must equal a roll of {label[-2:]}"
+    # Otherwise, get the table from the dictionary
+    table = tables[label]
+    # Roll another D100
+    second_roll = random.randint(1, 100)
+    # Divide the second roll by 10 and round down to get the index of the item in the table
+    index = (second_roll - 1) // 10
+    # Return the item from the table
+    return table[index]
 
 # Example usage:
 if __name__ == "__main__":
     rolled_value, roll_label = roll_100_sided_dice()
     print(f"The result of rolling a 100-sided dice is: {rolled_value} ({roll_label})")
+    # If the label is in the tables dictionary, get the item from the table
+    if roll_label in tables:
+        item = get_item_from_table(roll_label)
+        print(f"The item you get from the {roll_label} table is: {item}")
+    # Otherwise, print a message
+    else:
+        print(f"You need to choose a number of treasures legendary or less. All treasures chosen this way must equal a roll of {rolled_value}")
