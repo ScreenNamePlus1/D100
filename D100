@@ -1,73 +1,7 @@
 import random
 
-# Define the tables for each label
-Not_Magical = ["A rock"]
-Common = ["A potion of healing", "A scroll of fireball", "A bag of holding", "A cloak of protection"]
-Uncommon = ["A ring of invisibility", "A wand of magic missiles", "A +1 sword", "A +1 shield"]
-Rare = ["A staff of power", "A robe of the archmagi", "A +2 sword", "A +2 shield"]
-Very_Rare = ["A vorpal sword", "A belt of giant strength", "A cloak of displacement", "A ring of regeneration"]
-Legendary = ["A holy avenger", "A staff of the magi", "A deck of many things", "A ring of three wishes"]
-Artifact = ["The Eye of Vecna", "The Hand of Vecna", "The Sword of Kas", "The Orb of Dragonkind"]
-Choose_80 = ["Choose a number of treasures legendary or less. All treasures chosen this way must equal a roll of 80"]
-Choose_90 = ["Choose a number of treasures legendary or less. All treasures chosen this way must equal a roll of 90 or less."]
-Magical = ["A unique and powerful item of your choice"]
+def roll_d100():
+ return random.randint(1, 100)
 
-# Map the labels to the tables using a dictionary
-tables = {"Not Magical": Not_Magical, "Common": Common, "Uncommon": Uncommon, "Rare": Rare, "Very Rare": Very_Rare, "Legendary": Legendary, "Artifact": Artifact, "Choose 80": Choose_80, "Choose 90": Choose_90, "Magical": Magical}
-
-def roll_100_sided_dice():
-    """
-    Simulates rolling a 100-sided dice.
-    """
-    result = random.randint(1, 100)
-    if result <= 10:
-        label = "Not Magical"
-    elif result <= 20:
-        label = "Common"
-    elif result <= 30:
-        label = "Uncommon"
-    elif result <= 40:
-        label = "Rare"
-    elif result <= 50:
-        label = "Very Rare"
-    elif result <= 60:
-        label = "Legendary"
-    elif result <= 70:
-        label = "Artifact"
-    elif result <= 80:
-        label = "Choose 80"
-    elif result <= 90:
-        label = "Choose 90"
-    elif result <= 100:
-        label = "Magical"
-
-    return result, label
-
-def get_item_from_table(label):
-    """
-    Simulates rolling another D100 and getting an item from the table that corresponds to the label.
-    """
-    # If the label is not in the tables dictionary, return None
-    if label not in tables:
-        return None
-    # If the label is one of the values that require choosing a number of treasures, return a message
-    if label == "Choose 80" or label == "Choose 90":
-        return f"You need to choose a number of treasures legendary or less. All treasures chosen this way must equal a roll of {label[-2:]}"
-    # Otherwise, get the table from the dictionary
-    table = tables[label]
-    # Roll another D100
-    second_roll = random.randint(1, 100)
-    # Divide the second roll by 10 and round down to get the index of the item in the table
-    index = (second_roll - 1) // 10
-    # Return the item from the table
-    return table[index]
-if __name__ == "__main__":
-    rolled_value, roll_label = roll_100_sided_dice()
-    print(f"The result of rolling a 100-sided dice is: {rolled_value} ({roll_label})")
-    # If the label is in the tables dictionary, get the item from the table
-    if roll_label in tables:
-        item = get_item_from_table(roll_label)
-        print(f"The item you get from the {roll_label} table is: {item}")
-    # Otherwise, print a message
-    else:
-        print(f"You need to choose a number of treasures legendary or less. All treasures chosen this way must equal a roll of {rolled_value}")
+result = roll_d100()
+print("You rolled:", result)
