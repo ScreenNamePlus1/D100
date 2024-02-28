@@ -6,11 +6,11 @@ Common = ["A rock"]
 Uncommon = ["A rock"] 
 Rare = ["A rock"] 
 Very_Rare = ["A rock"] 
-Legendary =
-Artifact =
-Choose_80 =
-Choose_90 =
-Magical =
+Legendary = ["A rock] 
+Artifact = ["A rock"] 
+Choose_80 = ["A rock"] 
+Choose_90 = ["A rock"] 
+Magical = ["A rock"] 
 
 # Map the labels to the tables using a dictionary
 tables = {"Not Magical": Not_Magical, "Common": Common, "Uncommon": Uncommon, "Rare": Rare, "Very Rare": Very_Rare, "Legendary": Legendary, "Artifact": Artifact, "Choose 80": Choose_80, "Choose 90": Choose_90: "Magical": Magical}
