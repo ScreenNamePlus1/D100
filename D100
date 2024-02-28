@@ -38,7 +38,7 @@ def roll_100_sided_dice():
         label = "Choose 80"
     elif result <= 90:
         label = "Choose 90"
-    elif result == 100:
+    elif result <= 100:
         label = "Magical"
 
     return result, label
