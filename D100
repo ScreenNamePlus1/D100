@@ -1,16 +1,19 @@
 import random
 
 # Define the tables for each label
-Not_Magical = ["A rock", "A stick", "A feather", "A coin", "A button", "A nail", "A leaf", "A worm", "A bone", "A shell", "Leatherworker's Tools", "Healer's Kit", "Lantern, Bullseye", "Lock and Key", "Rations 1d6 weeks worth", "Shield", "Cartographer's Tools", "Forgery Kit", "Smith's Tools", "Military Saddle", "Ginger, 20lb bag, 1gp/lb", "Cinnamon, 10lb box, 2gp/lb", "Vial of Acid", "Climber's Kit", "Spell Component Pouch", "Flask of Holy Water", "Hourglass", "Jeweler's Tools", "Disguise Kit", "Dulcimer", "Navigator's Tools", "Thieves' Tools", "Scimitar", "Rapier", "Shortbow", "Light Crossbow", "Viol", "Bagpipes", "Lyre", "Greataxe", "Ring Mail", "Lute", "Studded Leather Armor", "Alchemist's Fire", "Vial of Antitoxin", "Potion of Healing", "Blank Spellbook", "Alchemist's Supplies", "Tinker's Tools", "Poisoner's Kit", "Cotton Cloth, 100yd roll, 5sp/yd", "Longbow", "Heavy Crossbow", "Greats word", "Chain Shirt", "Scale Mail Armor", "Saffron, 5lb box", "Hand Crossbow", "Chain Mail", "Books (1d6), 25gp/book", "Magnifying Glass", "Vial of Basic Poison", "Linen, 20yd bolt, 5gp/yd", "Barding, Studded Leather", "Splint Mail", "Barding, Chain Mail", "Breastplate", "Half Plate", "Spyglass", "Plate Mail" ]
-Common = ["A potion of healing", "A scroll of fireball", "A bag of holding", "A cloak of protection", "A ring of swimming", "A wand of magic missiles", "A pearl of power", "A quiver of +1 arrows", "A +1 dagger", "A +1 shield"]
-Uncommon = ["A potion of invisibility", "A scroll of teleportation", "A boots of elvenkind", "A cloak of elvenkind", "A ring of jumping", "A wand of web", "A gem of brightness", "A +1 longbow", "A +1 rapier", "A +1 chain shirt"]
-Rare = ["A potion of flying", "A scroll of resurrection", "A helm of teleportation", "A cloak of displacement", "A ring of regeneration", "A wand of lightning bolts", "A necklace of fireballs", "A +2 greatsword", "A +2 rapier", "A +2 breastplate"]
-Very_Rare = ["A potion of speed", "A scroll of wish", "A cube of force", "A cloak of the bat", "A ring of invisibility", "A wand of fireballs", "A staff of power", "A +3 warhammer", "A +3 scimitar", "A +3 half plate"]
-Legendary = ["A potion of supreme healing", "A scroll of true resurrection", "A sphere of annihilation", "A cloak of invisibility", "A ring of three wishes", "A wand of the war mage +3", "A staff of the magi", "A vorpal sword", "A holy avenger", "A robe of the archmagi"]
-Artifact = ["The Deck of Many Things", "The Eye of Vecna", "The Hand of Vecna", "The Orb of Dragonkind", "The Axe of the Dwarvish Lords", "The Book of Vile Darkness", "The Book of Exalted Deeds", "The Rod of Seven Parts", "The Sword of Kas", "The Blackstaff"]
+Not_Magical = ["A rock"]
+Common = ["A rock"] 
+Uncommon = ["A rock"] 
+Rare = ["A rock"] 
+Very_Rare = ["A rock"] 
+Legendary =
+Artifact =
+Choose_80 =
+Choose_90 =
+Magical =
 
 # Map the labels to the tables using a dictionary
-tables = {"Not Magical": Not_Magical, "Common": Common, "Uncommon": Uncommon, "Rare": Rare, "Very Rare": Very_Rare, "Legendary": Legendary, "Artifact": Artifact}
+tables = {"Not Magical": Not_Magical, "Common": Common, "Uncommon": Uncommon, "Rare": Rare, "Very Rare": Very_Rare, "Legendary": Legendary, "Artifact": Artifact, "Choose 80": Choose_80, "Choose 90": Choose_90: "Magical": Magical}
 
 def roll_100_sided_dice():
     """
@@ -32,9 +35,9 @@ def roll_100_sided_dice():
     elif result <= 70:
         label = "Artifact"
     elif result <= 80:
-        label = "Choose a number of treasures legendary or less. All treasures chosen this way must equal a roll of 80"
+        label = "Choose 80"
     elif result <= 90:
-        label = "Choose a number of treasures legendary or less. All treasures chosen this way must equal a roll of 90 or less."
+        label = "Choose 90"
     elif result == 100:
         label = "Magical"
 
